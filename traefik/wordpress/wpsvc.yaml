@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"wordpress"},"name":"wordpress","namespace":"default"},"spec":{"ports":[{"port":80}],"selector":{"app":"wordpress","tier":"frontend"},"type":"LoadBalancer"}}
+  creationTimestamp: "2020-11-13T09:46:33Z"
+  finalizers:
+  - service.kubernetes.io/load-balancer-cleanup
+  labels:
+    app: wordpress
+  name: wordpress
+  namespace: default
+  resourceVersion: "10070"
+  selfLink: /api/v1/namespaces/default/services/wordpress
+  uid: 873b037c-81f5-488d-9f84-8d53fd326635
+spec:
+  clusterIP: 10.4.15.25
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31572
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: wordpress
+    tier: frontend
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer:
+    ingress:
+    - ip: 34.77.118.191 

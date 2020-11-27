@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  name: wordpress
+  namespace: kube-system 
+spec:
+  rules:
+  - host: wp.35.187.121.153.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: wordpress   
+          servicePort: 80

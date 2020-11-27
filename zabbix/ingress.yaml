@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  name: zabbix
+  namespace: monitoring 
+spec:
+  rules:
+  - host: zabbix.34.77.141.128.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: zabbix-web   
+          servicePort: 80
